@@ -4,9 +4,8 @@ import joblib
 from sklearn.model_selection import TimeSeriesSplit, RandomizedSearchCV, cross_val_score
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import StandardScaler
 from pathlib import Path
-from typing import List, Dict, Any, Tuple, Union
+from typing import List, Dict, Any
 
 class ModelTrainer:
     def __init__(self, producer_type: str,
@@ -71,8 +70,8 @@ class ModelTrainer:
         # Evaluation
         
         self.metrics = {
-            "R²_train ": r2_score(y_train, y_train_pred),
-            "R²_test": r2_score(y_test, y_test_pred),
+            "R2_train ": r2_score(y_train, y_train_pred),
+            "R2_test": r2_score(y_test, y_test_pred),
             "MAE": mean_absolute_error(y_test, y_test_pred),
             "MSE": mean_squared_error(y_test, y_test_pred),
             "RMSE": np.sqrt(mean_squared_error(y_test, y_test_pred)),
@@ -93,8 +92,8 @@ class ModelTrainer:
         # Affichage résultats
         print("\n--- Résultats d'entraînement ---")
         print(f"Modèle entraîné pour {self.producer_type} : RandomForestRegressor")
-        print(f"R² train : {self.metrics['R2_train']:.3f}")
-        print(f"R² test  : {self.metrics['R2_test']:.3f}")
+        print(f"R²_train : {self.metrics['R2_train']:.3f}")
+        print(f"R²_test  : {self.metrics['R2_test']:.3f}")
         print(f"R² CV    : {self.metrics['R2_CV_mean']:.3f} +/- {self.metrics['R2_CV_std']:.3f}")
         print(f"MAE      : {self.metrics['MAE']:.3f}")
         print(f"RMSE     : {self.metrics['RMSE']:.3f}")

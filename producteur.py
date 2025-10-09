@@ -11,7 +11,7 @@ class Producteur(ABC):
         self.puissance_nominale = puissance_nominale
         self.db_manager = db_manager
         
-        self.table_name = f"{db_manager.energy_type.capitalize()}_data"
+        self.table_name = f"{db_manager.energy_type.lower()}_data"
         self.prod_column_name = f"{db_manager.energy_type}"
         
     @abstractmethod
@@ -92,3 +92,11 @@ class Producteur(ABC):
 class ProductionEolien(Producteur):
     def get_training_features(self):
         return ['wind_speed_10m_mean (km/h)', 'wind_speed3', 'temp_press']
+    
+class ProductionSolaire(Producteur):
+    def get_training_features(self):
+        return ['irradiance', 'temperature']
+
+class ProductionHydro(Producteur):
+    def get_training_features(self):
+        return ['QmnJ', 'HIXnJ']
