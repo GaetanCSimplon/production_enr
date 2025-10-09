@@ -39,7 +39,7 @@ class Database():
                 Column('id', Integer, primary_key=True),
                 Column('date', DateTime, nullable=True, unique=True),
                 Column('prod_eolienne', Float, nullable=True),
-                Column('windspeed_10m', Float, nullable=True),
+                Column('wind_speed_10m_mean (km/h)', Float, nullable=True),
                 Column('wind_speed3', Float, nullable=True),
                 Column('temp_press', Float, nullable=True)
                 )

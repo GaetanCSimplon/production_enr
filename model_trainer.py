@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Union
 
-class ModelTrain:
+class ModelTrainer:
     def __init__(self, producer_type: str,
                  features: List[str],
                  target: str,
@@ -71,7 +71,7 @@ class ModelTrain:
         # Evaluation
         
         self.metrics = {
-            "R² train ": r2_score(y_train, y_train_pred),
+            "R²_train ": r2_score(y_train, y_train_pred),
             "R²_test": r2_score(y_test, y_test_pred),
             "MAE": mean_absolute_error(y_test, y_test_pred),
             "MSE": mean_squared_error(y_test, y_test_pred),
