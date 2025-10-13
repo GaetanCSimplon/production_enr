@@ -11,8 +11,8 @@ class Producteur(ABC):
         self.puissance_nominale = puissance_nominale
         self.db_manager = db_manager
         
-        self.table_name = f"{db_manager.energy_type.lower()}_data"
-        self.prod_column_name = f"{db_manager.energy_type}"
+        self.table_name = f"{db_manager.energy_type.capitalize()}_data"
+        self.prod_column_name = f"prod_{db_manager.energy_type}"
         
     @abstractmethod
     def get_training_features(self) -> List[str]:

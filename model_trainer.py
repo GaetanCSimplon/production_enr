@@ -17,13 +17,15 @@ class ModelTrainer:
         self.producer_type = producer_type
         self.features = features
         self.target = target
-        self.save_dir = save_dir
+        self.save_dir = Path(save_dir)
         self.random_state = random_state
         
         self.model = None
         self.metrics = {}
         
-        self.save_dir.mkdir(parents=True, exists_ok=True)
+        if not self.save_dir.exists():
+            self.save_dir.mkdir(parents=True)
+            print(f"Dossier {self.save_dir} créé.")
         
     def train(self,
               data: pd.DataFrame,
@@ -70,12 +72,12 @@ class ModelTrainer:
         # Evaluation
         
         self.metrics = {
-            "R2_train ": r2_score(y_train, y_train_pred),
+            "R2_train": r2_score(y_train, y_train_pred),
             "R2_test": r2_score(y_test, y_test_pred),
             "MAE": mean_absolute_error(y_test, y_test_pred),
             "MSE": mean_squared_error(y_test, y_test_pred),
             "RMSE": np.sqrt(mean_squared_error(y_test, y_test_pred)),
-            "Meilleurs paramètres ": search.best_params_
+            "Best_params": search.best_params_
         }
         
         # Validation croisée temporelle
@@ -92,9 +94,9 @@ class ModelTrainer:
         # Affichage résultats
         print("\n--- Résultats d'entraînement ---")
         print(f"Modèle entraîné pour {self.producer_type} : RandomForestRegressor")
-        print(f"R²_train : {self.metrics['R2_train']:.3f}")
-        print(f"R²_test  : {self.metrics['R2_test']:.3f}")
-        print(f"R² CV    : {self.metrics['R2_CV_mean']:.3f} +/- {self.metrics['R2_CV_std']:.3f}")
+        print(f"R2_train : {self.metrics['R2_train']:.3f}")
+        print(f"R2_test  : {self.metrics['R2_test']:.3f}")
+        print(f"R2_CV    : {self.metrics['R2_CV_mean']:.3f} +/- {self.metrics['R2_CV_std']:.3f}")
         print(f"MAE      : {self.metrics['MAE']:.3f}")
         print(f"RMSE     : {self.metrics['RMSE']:.3f}")
         print(f"Meilleurs hyperparamètres : {self.metrics['Best_params']}")

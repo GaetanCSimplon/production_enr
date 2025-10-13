@@ -7,11 +7,19 @@ import pathlib as pl
 import os
 
 load_dotenv()
-TYPES = os.getenv("types")
+types_str = os.getenv("types")
+if types_str:
+    # a. On coupe la chaîne en une liste
+    temp_list = types_str.split(',')
+    # b. On nettoie chaque élément de la liste (on enlève les espaces avant/après)
+    #    et on ignore les éléments vides si jamais il y a une virgule en trop.
+    TYPES = [item.strip() for item in temp_list if item.strip()]
+else:
+    TYPES = []
 
 class Database():
     def __init__(self, url:str, service_key: str, database_url: str, energy_type: str = None):
-        if energy_type not in (None, TYPES):
+        if energy_type is not None and energy_type not in TYPES:
             raise ValueError(f"energy_type doit être parmi {TYPES} ou None pour tous, reçu: {energy_type}")
         self.energy_type = energy_type
         self.engine = create_engine(database_url, poolclass=NullPool)
