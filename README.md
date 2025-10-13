@@ -18,6 +18,7 @@ Classe
 2 - Classe enfant CSVDataHandler, APIDataHandler
 3 - Classe ModelTrainer (destiné à la phase de modélisation)
 4 - Classe pour gestion de la BDD - DataBase() (3 méthodes, create_table, drop_table, fetch_data)
+5 - Classe Producteur (abstraite) -> ProducteurEolienne, ProducteurSolaire, ProducteurHydro
 
 Modélisation
 
