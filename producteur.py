@@ -33,6 +33,7 @@ class Producteur(ABC):
         response = self.db_manager.client.table(self.table_name)\
                                         .select('*')\
                                         .order('date', desc=False)\
+                                        .limit(4000)\
                                         .execute()
 
         if not response.data:
