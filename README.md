@@ -122,7 +122,7 @@ streamlit run app.py
 | Énergie  | Variables d’entrée                                                                             | Modèle utilisé   |
 | -------- | ---------------------------------------------------------------------------------------------- | ---------------- |
 | Éolienne | `wind_speed_10m_mean`, `pressure_msl_mean`, `temperature_2m_mean`, `wind_speed3`, `temp_press` | Random Forest    |
-| Solaire  | `global_tilted_irradiance`, `temperature_2m`                                                   | Ridge Regression |
+| Solaire  | `global_tilted_irradiance`, `temperature_2m`                                                   | Random Forest    |
 | Hydro    | `QmnJ`, `HIXnJ`                                                                                | Random Forest    |
 
 ## Entraîner les modèles
