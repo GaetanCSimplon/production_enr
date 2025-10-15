@@ -10,3 +10,8 @@ Utilisez le menu latéral pour visualiser ou prédire la production :
 - **Solaire**
 - **Éolien**
 """)
+
+st.markdown(
+    "[Documentation API](https://gaetancsimplon.github.io/production_enr/)",
+    unsafe_allow_html=True
+)

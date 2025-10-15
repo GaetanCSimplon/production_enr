@@ -1,0 +1,41 @@
+site_name: Production Énergétique - Documentation
+site_description: Documentation technique du projet de prédiction de production énergétique
+site_author: Kirill, Samy, Get
+repo_url: https://github.com/GaetanCSimplon/production_enr
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+  features:
+    - navigation.expand
+    - navigation.instant
+    - content.code.annotate
+    - content.code.copy
+
+nav:
+  - Accueil: index.md
+  - Installation: installation.md
+  - Utilisation: utilisation.md
+  - Architecture: architecture.md
+  - API Reference: api_reference.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/GaetanCSimplon/production_enr
