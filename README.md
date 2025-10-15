@@ -33,6 +33,7 @@ production_enr/
 |     |──model_trainer.py  # Classe d'entraînement des modèles
 |     |──train_models.py   # Script principal d'entraînement
 |  |──saved_models/        # Dossier de sauvegarde des modèles entrainés
+|──docs                    # Dossier documentation
 |──frontend/
 |  |──pages
 |     |──Hydro.py
@@ -46,7 +47,8 @@ production_enr/
 |  |──notebook_prod_hydro.ipynb
 |  |──notebook_samy.ipynb  # Analyse des données de production solaire
 |  |──notebook_select_model.ipynb
-|
+|──site                    # Relatif à la documentation
+|──mkdocs.yaml             # Fichier de configuration de la documentation
 ```
 
 ## Technologies utilisées
@@ -60,8 +62,12 @@ production_enr/
 | APIs externes    | Open-Meteo, API Hydro       |
 | Déploiement      | (optionnel) Docker, Uvicorn |
 
+## Documentations
+
+https://gaetancsimplon.github.io/production_enr/
+
 ## Installation
-### Cloner le projet
+## Cloner le projet
 ```
 git clone https://github.com/GaetanCSimplon/production_enr.git
 
